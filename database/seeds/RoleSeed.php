@@ -17,6 +17,7 @@ class RoleSeed extends Seeder
             ['id' => 3, 'title' => 'Finance',],
             ['id' => 4, 'title' => 'PM',],
             ['id' => 5, 'title' => 'PA',],
+            ['id' => 7, 'title' => 'Team Admin',],
 
         ];
 

@@ -104,10 +104,6 @@
                                 </p>
                             @endforeach</td>
                         </tr>
-                        <tr>
-                            <th>@lang('global.invoices.fields.created-by')</th>
-                            <td field-key='created_by'>{{ $invoice->created_by->name ?? '' }}</td>
-                        </tr>
                     </table>
                 </div>
             </div>

@@ -9,7 +9,7 @@ return [
 		'categories' => [		'title' => 'Categories',		'fields' => [			'name' => 'Name',		],	],
 		'contingencies' => [		'title' => 'Contingencies',		'fields' => [			'name' => 'Name',		],	],
 		'expense-types' => [		'title' => 'Expense types',		'fields' => [			'name' => 'Name',		],	],
-		'invoices' => [		'title' => 'Invoices',		'fields' => [			'user' => 'Requester',			'project' => 'Project',			'expense-type' => 'Expense type',			'meeting' => 'Meeting',			'contingency' => 'Contingency',			'date' => 'Date',			'due-date' => 'Due date',			'provider' => 'Provider',			'invoice-subtotal' => 'Invoice subtotal',			'invoice-taxes' => 'Invoice taxes',			'invoice-total' => 'Invoice total',			'budget-subtotal' => 'Budget subtotal',			'budget-taxes' => 'Budget taxes',			'budget-total' => 'Budget total',			'service' => 'Service',			'selection-criteria' => 'Selection criteria',			'service-type' => 'Service type',			'pm' => 'PM',			'pm-approval-date' => 'PM approval date',			'finance' => 'Finance Responsible',			'finance-approval-date' => 'Finance approval date',			'files' => 'Upload Files',			'created-by' => 'Created by',		],	],
+		'invoices' => [		'title' => 'Invoices',		'fields' => [			'user' => 'Requester',			'project' => 'Project',			'expense-type' => 'Expense type',			'meeting' => 'Meeting',			'contingency' => 'Contingency',			'date' => 'Date',			'due-date' => 'Due date',			'provider' => 'Provider',			'invoice-subtotal' => 'Invoice subtotal',			'invoice-taxes' => 'Invoice taxes',			'invoice-total' => 'Invoice total',			'budget-subtotal' => 'Budget subtotal',			'budget-taxes' => 'Budget taxes',			'budget-total' => 'Budget total',			'service' => 'Service',			'selection-criteria' => 'Selection criteria',			'service-type' => 'Service type',			'pm' => 'PM',			'pm-approval-date' => 'PM approval date',			'finance' => 'Finance Responsible',			'finance-approval-date' => 'Finance approval date',			'files' => 'Upload Files',		],	],
 		'meetings' => [		'title' => 'Meetings',		'fields' => [			'name' => 'Name',			'project' => 'Project',			'city' => 'City',			'start-date' => 'Start date',			'end-date' => 'End date',			'status' => 'Status',		],	],
 		'messages' => [		'title' => 'Messages',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'phone' => 'Phone',			'message' => 'Message',		],	],
 		'photos' => [		'title' => 'Photos',		'fields' => [		],	],
@@ -19,6 +19,7 @@ return [
 		'years' => [		'title' => 'Years',		'fields' => [			'name' => 'Name',		],	],
 		'invoice-management' => [		'title' => 'Invoice management',		'fields' => [		],	],
 		'status' => [		'title' => 'Status',		'fields' => [			'name' => 'Name',		],	],
+		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
 		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
 	'app_create' => 'Create',
 	'app_save' => 'Save',

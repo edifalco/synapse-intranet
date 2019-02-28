@@ -132,7 +132,6 @@
                         <th>@lang('global.invoices.fields.pm-approval-date')</th>
                         <th>@lang('global.invoices.fields.finance')</th>
                         <th>@lang('global.invoices.fields.finance-approval-date')</th>
-                        <th>@lang('global.invoices.fields.created-by')</th>
                                                 <th>&nbsp;</th>
 
         </tr>
@@ -156,7 +155,6 @@
                                 <td field-key='finance'>{{ $invoice->finance->name ?? '' }}</td>
                                 <td field-key='finance_approval_date'>{{ $invoice->finance_approval_date }}</td>
                                 <td field-key='files'>@if($invoice->files)<a href="{{ asset(env('UPLOAD_PATH').'/' . $invoice->files) }}" target="_blank">Download file</a>@endif</td>
-                                <td field-key='created_by'>{{ $invoice->created_by->name ?? '' }}</td>
                                                                 <td>
                                     @can('invoice_view')
                                     <a href="{{ route('admin.invoices.show',[$invoice->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
@@ -179,7 +177,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="28">@lang('global.app_no_entries_in_table')</td>
+                <td colspan="27">@lang('global.app_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
