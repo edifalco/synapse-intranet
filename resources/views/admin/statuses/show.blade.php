@@ -22,6 +22,7 @@
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a></li>
+<li role="presentation" class=""><a href="#meetings" aria-controls="meetings" role="tab" data-toggle="tab">Meetings</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -73,6 +74,59 @@
         @else
             <tr>
                 <td colspan="10">@lang('global.app_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane " id="meetings">
+<table class="table table-bordered table-striped {{ count($meetings) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('global.meetings.fields.name')</th>
+                        <th>@lang('global.meetings.fields.project')</th>
+                        <th>@lang('global.meetings.fields.city')</th>
+                        <th>@lang('global.meetings.fields.start-date')</th>
+                        <th>@lang('global.meetings.fields.end-date')</th>
+                        <th>@lang('global.meetings.fields.status')</th>
+                                                <th>&nbsp;</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($meetings) > 0)
+            @foreach ($meetings as $meeting)
+                <tr data-entry-id="{{ $meeting->id }}">
+                    <td field-key='name'>{{ $meeting->name }}</td>
+                                <td field-key='project'>{{ $meeting->project->name ?? '' }}</td>
+                                <td field-key='city'>{{ $meeting->city }}</td>
+                                <td field-key='start_date'>{{ $meeting->start_date }}</td>
+                                <td field-key='end_date'>{{ $meeting->end_date }}</td>
+                                <td field-key='status'>{{ $meeting->status->name ?? '' }}</td>
+                                                                <td>
+                                    @can('meeting_view')
+                                    <a href="{{ route('admin.meetings.show',[$meeting->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
+                                    @endcan
+                                    @can('meeting_edit')
+                                    <a href="{{ route('admin.meetings.edit',[$meeting->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>
+                                    @endcan
+                                    @can('meeting_delete')
+{!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
+                                        'route' => ['admin.meetings.destroy', $meeting->id])) !!}
+                                    {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="11">@lang('global.app_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>

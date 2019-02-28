@@ -72,12 +72,12 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('is_active', trans('global.meetings.fields.is-active').'', ['class' => 'control-label']) !!}
-                    {!! Form::number('is_active', old('is_active'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('status_id', trans('global.meetings.fields.status').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('is_active'))
+                    @if($errors->has('status_id'))
                         <p class="help-block">
-                            {{ $errors->first('is_active') }}
+                            {{ $errors->first('status_id') }}
                         </p>
                     @endif
                 </div>

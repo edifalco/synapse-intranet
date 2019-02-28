@@ -40,8 +40,9 @@ class MeetingsController extends Controller
         }
         
         $projects = \App\Project::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
+        $statuses = \App\Status::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
-        return view('admin.meetings.create', compact('projects'));
+        return view('admin.meetings.create', compact('projects', 'statuses'));
     }
 
     /**
@@ -76,10 +77,11 @@ class MeetingsController extends Controller
         }
         
         $projects = \App\Project::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
+        $statuses = \App\Status::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
         $meeting = Meeting::findOrFail($id);
 
-        return view('admin.meetings.edit', compact('meeting', 'projects'));
+        return view('admin.meetings.edit', compact('meeting', 'projects', 'statuses'));
     }
 
     /**
@@ -115,7 +117,8 @@ class MeetingsController extends Controller
             return abort(401);
         }
         
-        $projects = \App\Project::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');$invoices = \App\Invoice::where('meeting_id', $id)->get();
+        $projects = \App\Project::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
+        $statuses = \App\Status::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');$invoices = \App\Invoice::where('meeting_id', $id)->get();
 
         $meeting = Meeting::findOrFail($id);
 
