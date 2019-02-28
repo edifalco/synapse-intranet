@@ -21,6 +21,7 @@ return [
 		'status' => [		'title' => 'Status',		'fields' => [			'name' => 'Name',		],	],
 		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
 		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
+		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [			'user' => 'User',			'action' => 'Action',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
 	'app_create' => 'Create',
 	'app_save' => 'Save',
 	'app_edit' => 'Edit',

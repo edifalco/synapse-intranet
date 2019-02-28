@@ -40,6 +40,12 @@ class Invoice extends Model implements HasMedia
     protected $hidden = [];
     
     
+    public static function boot()
+    {
+        parent::boot();
+
+        Invoice::observe(new \App\Observers\UserActionsObserver);
+    }
 
     /**
      * Set to null if empty
