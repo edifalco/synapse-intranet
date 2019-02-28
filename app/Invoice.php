@@ -3,7 +3,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
-use App\Traits\FilterByUser;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 
@@ -32,13 +31,12 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
  * @property time $pm_approval_date
  * @property string $finance
  * @property time $finance_approval_date
- * @property string $created_by
 */
 class Invoice extends Model implements HasMedia
 {
-    use FilterByUser, HasMediaTrait;
+    use HasMediaTrait;
 
-    protected $fillable = ['date', 'due_date', 'invoice_subtotal', 'invoice_taxes', 'invoice_total', 'budget_subtotal', 'budget_taxes', 'budget_total', 'service', 'selection_criteria', 'pm_approval_date', 'finance_approval_date', 'user_id', 'project_id', 'expense_type_id', 'meeting_id', 'contingency_id', 'provider_id', 'service_type_id', 'pm_id', 'finance_id', 'created_by_id'];
+    protected $fillable = ['date', 'due_date', 'invoice_subtotal', 'invoice_taxes', 'invoice_total', 'budget_subtotal', 'budget_taxes', 'budget_total', 'service', 'selection_criteria', 'pm_approval_date', 'finance_approval_date', 'user_id', 'project_id', 'expense_type_id', 'meeting_id', 'contingency_id', 'provider_id', 'service_type_id', 'pm_id', 'finance_id'];
     protected $hidden = [];
     
     
@@ -317,15 +315,6 @@ class Invoice extends Model implements HasMedia
             return '';
         }
     }
-
-    /**
-     * Set to null if empty
-     * @param $input
-     */
-    public function setCreatedByIdAttribute($input)
-    {
-        $this->attributes['created_by_id'] = $input ? $input : null;
-    }
     
     public function user()
     {
@@ -370,11 +359,6 @@ class Invoice extends Model implements HasMedia
     public function finance()
     {
         return $this->belongsTo(User::class, 'finance_id');
-    }
-    
-    public function created_by()
-    {
-        return $this->belongsTo(User::class, 'created_by_id');
     }
     
 }
