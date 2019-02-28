@@ -26,7 +26,6 @@ class UpdateMeetingsRequest extends FormRequest
             
             'start_date' => 'nullable|date_format:'.config('app.date_format'),
             'end_date' => 'nullable|date_format:'.config('app.date_format'),
-            'is_active' => 'max:2147483647|nullable|numeric',
         ];
     }
 }

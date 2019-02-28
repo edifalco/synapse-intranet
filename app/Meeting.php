@@ -13,11 +13,11 @@ use Carbon\Carbon;
  * @property string $city
  * @property string $start_date
  * @property string $end_date
- * @property integer $is_active
+ * @property string $status
 */
 class Meeting extends Model
 {
-    protected $fillable = ['name', 'city', 'start_date', 'end_date', 'is_active', 'project_id'];
+    protected $fillable = ['name', 'city', 'start_date', 'end_date', 'project_id', 'status_id'];
     protected $hidden = [];
     
     
@@ -92,17 +92,22 @@ class Meeting extends Model
     }
 
     /**
-     * Set attribute to money format
+     * Set to null if empty
      * @param $input
      */
-    public function setIsActiveAttribute($input)
+    public function setStatusIdAttribute($input)
     {
-        $this->attributes['is_active'] = $input ? $input : null;
+        $this->attributes['status_id'] = $input ? $input : null;
     }
     
     public function project()
     {
         return $this->belongsTo(Project::class, 'project_id');
+    }
+    
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'status_id')->withTrashed();
     }
     
 }

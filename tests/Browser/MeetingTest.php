@@ -25,7 +25,7 @@ class MeetingTest extends DuskTestCase
                 ->type("city", $meeting->city)
                 ->type("start_date", $meeting->start_date)
                 ->type("end_date", $meeting->end_date)
-                ->type("is_active", $meeting->is_active)
+                ->select("status_id", $meeting->status_id)
                 ->press('Save')
                 ->assertRouteIs('admin.meetings.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $meeting->name)
@@ -33,7 +33,7 @@ class MeetingTest extends DuskTestCase
                 ->assertSeeIn("tr:last-child td[field-key='city']", $meeting->city)
                 ->assertSeeIn("tr:last-child td[field-key='start_date']", $meeting->start_date)
                 ->assertSeeIn("tr:last-child td[field-key='end_date']", $meeting->end_date)
-                ->assertSeeIn("tr:last-child td[field-key='is_active']", $meeting->is_active)
+                ->assertSeeIn("tr:last-child td[field-key='status']", $meeting->status->name)
                 ->logout();
         });
     }
@@ -55,7 +55,7 @@ class MeetingTest extends DuskTestCase
                 ->type("city", $meeting2->city)
                 ->type("start_date", $meeting2->start_date)
                 ->type("end_date", $meeting2->end_date)
-                ->type("is_active", $meeting2->is_active)
+                ->select("status_id", $meeting2->status_id)
                 ->press('Update')
                 ->assertRouteIs('admin.meetings.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $meeting2->name)
@@ -63,7 +63,7 @@ class MeetingTest extends DuskTestCase
                 ->assertSeeIn("tr:last-child td[field-key='city']", $meeting2->city)
                 ->assertSeeIn("tr:last-child td[field-key='start_date']", $meeting2->start_date)
                 ->assertSeeIn("tr:last-child td[field-key='end_date']", $meeting2->end_date)
-                ->assertSeeIn("tr:last-child td[field-key='is_active']", $meeting2->is_active)
+                ->assertSeeIn("tr:last-child td[field-key='status']", $meeting2->status->name)
                 ->logout();
         });
     }
@@ -85,7 +85,7 @@ class MeetingTest extends DuskTestCase
                 ->assertSeeIn("td[field-key='city']", $meeting->city)
                 ->assertSeeIn("td[field-key='start_date']", $meeting->start_date)
                 ->assertSeeIn("td[field-key='end_date']", $meeting->end_date)
-                ->assertSeeIn("td[field-key='is_active']", $meeting->is_active)
+                ->assertSeeIn("td[field-key='status']", $meeting->status->name)
                 ->logout();
         });
     }

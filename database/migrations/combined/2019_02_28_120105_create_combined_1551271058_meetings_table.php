@@ -19,7 +19,6 @@ class CreateCombined1551271058MeetingsTable extends Migration
                 $table->string('city');
                 $table->date('start_date')->nullable();
                 $table->date('end_date')->nullable();
-                $table->integer('is_active')->nullable();
                 
                 $table->timestamps();
                 

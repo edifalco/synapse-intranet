@@ -33,8 +33,8 @@
                             <td field-key='end_date'>{{ $meeting->end_date }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('global.meetings.fields.is-active')</th>
-                            <td field-key='is_active'>{{ $meeting->is_active }}</td>
+                            <th>@lang('global.meetings.fields.status')</th>
+                            <td field-key='status'>{{ $meeting->status->name ?? '' }}</td>
                         </tr>
                     </table>
                 </div>

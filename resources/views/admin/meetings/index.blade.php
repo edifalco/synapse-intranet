@@ -30,7 +30,7 @@
                         <th>@lang('global.meetings.fields.city')</th>
                         <th>@lang('global.meetings.fields.start-date')</th>
                         <th>@lang('global.meetings.fields.end-date')</th>
-                        <th>@lang('global.meetings.fields.is-active')</th>
+                        <th>@lang('global.meetings.fields.status')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -49,7 +49,7 @@
                                 <td field-key='city'>{{ $meeting->city }}</td>
                                 <td field-key='start_date'>{{ $meeting->start_date }}</td>
                                 <td field-key='end_date'>{{ $meeting->end_date }}</td>
-                                <td field-key='is_active'>{{ $meeting->is_active }}</td>
+                                <td field-key='status'>{{ $meeting->status->name ?? '' }}</td>
                                                                 <td>
                                     @can('meeting_view')
                                     <a href="{{ route('admin.meetings.show',[$meeting->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>

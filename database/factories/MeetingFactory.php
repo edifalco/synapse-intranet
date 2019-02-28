@@ -7,6 +7,6 @@ $factory->define(App\Meeting::class, function (Faker\Generator $faker) {
         "city" => $faker->name,
         "start_date" => $faker->date("d-m-Y", $max = 'now'),
         "end_date" => $faker->date("d-m-Y", $max = 'now'),
-        "is_active" => $faker->randomNumber(2),
+        "status_id" => factory('App\Status')->create(),
     ];
 });

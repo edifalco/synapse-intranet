@@ -115,11 +115,11 @@ class StatusesController extends Controller
         if (! Gate::allows('status_view')) {
             return abort(401);
         }
-        $projects = \App\Project::where('status_id', $id)->get();
+        $projects = \App\Project::where('status_id', $id)->get();$meetings = \App\Meeting::where('status_id', $id)->get();
 
         $status = Status::findOrFail($id);
 
-        return view('admin.statuses.show', compact('status', 'projects'));
+        return view('admin.statuses.show', compact('status', 'projects', 'meetings'));
     }
 
 
