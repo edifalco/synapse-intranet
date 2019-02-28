@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Yajra\DataTables\DataTablesServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         
 

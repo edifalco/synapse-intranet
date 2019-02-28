@@ -90,6 +90,11 @@ class PermissionSeed extends Seeder
             ['id' => 75, 'title' => 'status_edit',],
             ['id' => 76, 'title' => 'status_view',],
             ['id' => 77, 'title' => 'status_delete',],
+            ['id' => 88, 'title' => 'user_action_access',],
+            ['id' => 89, 'title' => 'user_action_create',],
+            ['id' => 90, 'title' => 'user_action_edit',],
+            ['id' => 91, 'title' => 'user_action_view',],
+            ['id' => 92, 'title' => 'user_action_delete',],
 
         ];
 
