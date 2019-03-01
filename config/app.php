@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'Intranet import clone',
+    'name' => 'Intranet import clone 2',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,7 +166,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Yajra\DataTables\DataTablesServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         
 

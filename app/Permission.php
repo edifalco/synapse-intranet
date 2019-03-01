@@ -15,11 +15,5 @@ class Permission extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Permission::observe(new \App\Observers\UserActionsObserver);
-    }
     
 }

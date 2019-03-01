@@ -21,12 +21,6 @@ class Budget extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Budget::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set to null if empty

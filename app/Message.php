@@ -18,11 +18,5 @@ class Message extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Message::observe(new \App\Observers\UserActionsObserver);
-    }
     
 }

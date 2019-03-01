@@ -20,12 +20,6 @@ class Project extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Project::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set attribute to date format
