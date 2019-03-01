@@ -12,15 +12,15 @@ class SystemCalendarController extends Controller
         $events = []; 
 
         foreach (\App\Invoice::all() as $invoice) { 
-           $crudFieldValue = $invoice->getOriginal('due_date'); 
+           $crudFieldValue = $invoice->getOriginal('date'); 
 
            if (! $crudFieldValue) {
                continue;
            }
 
-           $eventLabel     = $invoice->invoice_subtotal; 
-           $prefix         = 'Invoice of €'; 
-           $suffix         = 'is due today'; 
+           $eventLabel     = $invoice->budget_total; 
+           $prefix         = 'Invoice amount €'; 
+           $suffix         = ''; 
            $dataFieldValue = trim($prefix . " " . $eventLabel . " " . $suffix); 
            $events[]       = [ 
                 'title' => $dataFieldValue, 

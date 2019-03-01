@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreInvoicesRequest;
 use App\Http\Requests\Admin\UpdateInvoicesRequest;
 use App\Http\Controllers\Traits\FileUploadTrait;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
 
 class InvoicesController extends Controller
 {
@@ -24,7 +26,13 @@ class InvoicesController extends Controller
         if (! Gate::allows('invoice_access')) {
             return abort(401);
         }
-
+        if ($filterBy = Input::get('filter')) {
+            if ($filterBy == 'all') {
+                Session::put('Invoice.filter', 'all');
+            } elseif ($filterBy == 'my') {
+                Session::put('Invoice.filter', 'my');
+            }
+        }
 
                 $invoices = Invoice::all();
 
@@ -51,8 +59,9 @@ class InvoicesController extends Controller
         $service_types = \App\ServiceType::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
         $pms = \App\User::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
         $finances = \App\User::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
+        $created_bies = \App\User::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
-        return view('admin.invoices.create', compact('users', 'projects', 'expense_types', 'meetings', 'contingencies', 'providers', 'service_types', 'pms', 'finances'));
+        return view('admin.invoices.create', compact('users', 'projects', 'expense_types', 'meetings', 'contingencies', 'providers', 'service_types', 'pms', 'finances', 'created_bies'));
     }
 
     /**
@@ -103,10 +112,11 @@ class InvoicesController extends Controller
         $service_types = \App\ServiceType::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
         $pms = \App\User::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
         $finances = \App\User::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
+        $created_bies = \App\User::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
         $invoice = Invoice::findOrFail($id);
 
-        return view('admin.invoices.edit', compact('invoice', 'users', 'projects', 'expense_types', 'meetings', 'contingencies', 'providers', 'service_types', 'pms', 'finances'));
+        return view('admin.invoices.edit', compact('invoice', 'users', 'projects', 'expense_types', 'meetings', 'contingencies', 'providers', 'service_types', 'pms', 'finances', 'created_bies'));
     }
 
     /**

@@ -23,5 +23,6 @@ $factory->define(App\Invoice::class, function (Faker\Generator $faker) {
         "pm_approval_date" => $faker->date("H:i:s", $max = 'now'),
         "finance_id" => factory('App\User')->create(),
         "finance_approval_date" => $faker->date("H:i:s", $max = 'now'),
+        "created_by_id" => factory('App\User')->create(),
     ];
 });

@@ -129,6 +129,7 @@ class InvoiceTest extends DuskTestCase
                 ->assertSeeIn("td[field-key='pm_approval_date']", $invoice->pm_approval_date)
                 ->assertSeeIn("td[field-key='finance']", $invoice->finance->name)
                 ->assertSeeIn("td[field-key='finance_approval_date']", $invoice->finance_approval_date)
+                ->assertSeeIn("td[field-key='created_by']", $invoice->created_by->name)
                 ->logout();
         });
     }
