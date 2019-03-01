@@ -18,7 +18,8 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', 'HomeController@index');
-    
+    Route::get('/calendar', 'Admin\SystemCalendarController@index'); 
+  
     Route::resource('invoices', 'Admin\InvoicesController');
     Route::post('invoices_mass_destroy', ['uses' => 'Admin\InvoicesController@massDestroy', 'as' => 'invoices.mass_destroy']);
     Route::resource('projects', 'Admin\ProjectsController');

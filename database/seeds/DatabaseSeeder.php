@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionSeed::class);
         $this->call(RoleSeed::class);
         $this->call(UserSeed::class);
+        $this->call(InvoiceSeed::class);
+        $this->call(UserActionSeed::class);
         $this->call(RoleSeedPivot::class);
         $this->call(UserSeedPivot::class);
 
