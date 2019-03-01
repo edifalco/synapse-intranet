@@ -18,11 +18,5 @@ class Contingency extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Contingency::observe(new \App\Observers\UserActionsObserver);
-    }
     
 }

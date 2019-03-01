@@ -14,9 +14,7 @@ class RoleSeed extends Seeder
         $items = [
             
             ['id' => 1, 'title' => 'Administrator (can create other users)',],
-            ['id' => 2, 'title' => 'Finance',],
-            ['id' => 3, 'title' => 'PM',],
-            ['id' => 4, 'title' => 'PA',],
+            ['id' => 2, 'title' => 'Simple user',],
 
         ];
 

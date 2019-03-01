@@ -18,11 +18,5 @@ class Status extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Status::observe(new \App\Observers\UserActionsObserver);
-    }
     
 }
