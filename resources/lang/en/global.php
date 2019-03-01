@@ -5,22 +5,19 @@ return [
 		'permissions' => [		'title' => 'Permissions',		'fields' => [			'title' => 'Title',		],	],
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
 		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'budgets' => [		'title' => 'Budgets',		'fields' => [			'project' => 'Project',			'category' => 'Category',			'year' => 'Year',			'amount' => 'Amount',		],	],
+		'invoice-management' => [		'title' => 'Invoice management',		'fields' => [		],	],
+		'invoices' => [		'title' => 'Invoices',		'fields' => [			'user' => 'Requester',			'project' => 'Project',			'expense-type' => 'Expense type',			'meeting' => 'Meeting',			'contingency' => 'Contingency',			'date' => 'Date',			'due-date' => 'Due date',			'provider' => 'Provider',			'invoice-subtotal' => 'Invoice subtotal',			'invoice-taxes' => 'Invoice taxes',			'invoice-total' => 'Invoice total',			'budget-subtotal' => 'Budget subtotal',			'budget-taxes' => 'Budget taxes',			'budget-total' => 'Budget total',			'service' => 'Service',			'selection-criteria' => 'Selection criteria',			'service-type' => 'Service type',			'pm' => 'PM',			'pm-approval-date' => 'PM approval date',			'finance' => 'Finance Responsible',			'finance-approval-date' => 'Finance approval date',			'files' => 'Upload Files',			'created-by' => 'Created by',		],	],
+		'years' => [		'title' => 'Years',		'fields' => [			'name' => 'Name',		],	],
+		'status' => [		'title' => 'Status',		'fields' => [			'name' => 'Name',		],	],
+		'providers' => [		'title' => 'Providers',		'fields' => [			'name' => 'Name',			'address' => 'Address',			'postal-code' => 'Postal code',			'city' => 'City',			'country' => 'Country',			'phone' => 'Phone',			'contact-person' => 'Contact person',			'email' => 'Email',		],	],
+		'service-types' => [		'title' => 'Service types',		'fields' => [			'name' => 'Name',		],	],
+		'projects' => [		'title' => 'Projects',		'fields' => [			'name' => 'Name',			'start-date' => 'Start date',			'end-date' => 'End date',			'logo' => 'Upload Logo',			'status' => 'Status',		],	],
 		'categories' => [		'title' => 'Categories',		'fields' => [			'name' => 'Name',		],	],
 		'contingencies' => [		'title' => 'Contingencies',		'fields' => [			'name' => 'Name',		],	],
 		'expense-types' => [		'title' => 'Expense types',		'fields' => [			'name' => 'Name',		],	],
-		'invoices' => [		'title' => 'Invoices',		'fields' => [			'user' => 'Requester',			'project' => 'Project',			'expense-type' => 'Expense type',			'meeting' => 'Meeting',			'contingency' => 'Contingency',			'date' => 'Date',			'due-date' => 'Due date',			'provider' => 'Provider',			'invoice-subtotal' => 'Invoice subtotal',			'invoice-taxes' => 'Invoice taxes',			'invoice-total' => 'Invoice total',			'budget-subtotal' => 'Budget subtotal',			'budget-taxes' => 'Budget taxes',			'budget-total' => 'Budget total',			'service' => 'Service',			'selection-criteria' => 'Selection criteria',			'service-type' => 'Service type',			'pm' => 'PM',			'pm-approval-date' => 'PM approval date',			'finance' => 'Finance Responsible',			'finance-approval-date' => 'Finance approval date',			'files' => 'Upload Files',		],	],
 		'meetings' => [		'title' => 'Meetings',		'fields' => [			'name' => 'Name',			'project' => 'Project',			'city' => 'City',			'start-date' => 'Start date',			'end-date' => 'End date',			'status' => 'Status',		],	],
+		'budgets' => [		'title' => 'Budgets',		'fields' => [			'project' => 'Project',			'category' => 'Category',			'year' => 'Year',			'amount' => 'Amount',		],	],
 		'messages' => [		'title' => 'Messages',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'phone' => 'Phone',			'message' => 'Message',		],	],
-		'photos' => [		'title' => 'Photos',		'fields' => [		],	],
-		'projects' => [		'title' => 'Projects',		'fields' => [			'name' => 'Name',			'start-date' => 'Start date',			'end-date' => 'End date',			'logo' => 'Upload Logo',			'status' => 'Status',		],	],
-		'providers' => [		'title' => 'Providers',		'fields' => [			'name' => 'Name',			'address' => 'Address',			'postal-code' => 'Postal code',			'city' => 'City',			'country' => 'Country',			'phone' => 'Phone',			'contact-person' => 'Contact person',			'email' => 'Email',		],	],
-		'service-types' => [		'title' => 'Service types',		'fields' => [			'name' => 'Name',		],	],
-		'years' => [		'title' => 'Years',		'fields' => [			'name' => 'Name',		],	],
-		'invoice-management' => [		'title' => 'Invoice management',		'fields' => [		],	],
-		'status' => [		'title' => 'Status',		'fields' => [			'name' => 'Name',		],	],
-		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
-		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
 		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [			'user' => 'User',			'action' => 'Action',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
 	'app_create' => 'Create',
 	'app_save' => 'Save',
@@ -266,5 +263,5 @@ return [
 	'app_deselect_all' => 'Deselect all',
 	'app_team-management' => 'Teams',
 	'app_team-management-singular' => 'Team',
-	'global_title' => 'Intranet import',
+	'global_title' => 'Intranet import clone',
 ];

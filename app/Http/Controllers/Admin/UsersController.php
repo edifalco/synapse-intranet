@@ -120,11 +120,11 @@ class UsersController extends Controller
         }
         
         $roles = \App\Role::get()->pluck('title', 'id');
-$invoices = \App\Invoice::where('user_id', $id)->get();$user_actions = \App\UserAction::where('user_id', $id)->get();$invoices = \App\Invoice::where('pm_id', $id)->get();$invoices = \App\Invoice::where('finance_id', $id)->get();
+$invoices = \App\Invoice::where('user_id', $id)->get();$user_actions = \App\UserAction::where('user_id', $id)->get();$invoices = \App\Invoice::where('pm_id', $id)->get();$invoices = \App\Invoice::where('finance_id', $id)->get();$invoices = \App\Invoice::where('created_by_id', $id)->get();
 
         $user = User::findOrFail($id);
 
-        return view('admin.users.show', compact('user', 'invoices', 'user_actions', 'invoices', 'invoices'));
+        return view('admin.users.show', compact('user', 'invoices', 'user_actions', 'invoices', 'invoices', 'invoices'));
     }
 
 

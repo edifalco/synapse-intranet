@@ -7,6 +7,13 @@
     <p>
         <a href="{{ route('admin.invoices.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
         
+        @if(!is_null(Auth::getUser()->role_id) && config('global.can_see_all_records_role_id') == Auth::getUser()->role_id)
+            @if(Session::get('Invoice.filter', 'all') == 'my')
+                <a href="?filter=all" class="btn btn-default">Show all records</a>
+            @else
+                <a href="?filter=my" class="btn btn-default">Filter my records</a>
+            @endif
+        @endif
     </p>
     @endcan
 
@@ -39,6 +46,7 @@
                         <th>@lang('global.invoices.fields.finance')</th>
                         <th>@lang('global.invoices.fields.finance-approval-date')</th>
                         <th>@lang('global.invoices.fields.files')</th>
+                        <th>@lang('global.invoices.fields.created-by')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -70,6 +78,7 @@
                                     <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                 </p>
                             @endforeach</td>
+                                <td field-key='created_by'>{{ $invoice->created_by->name ?? '' }}</td>
                                                                 <td>
                                     @can('invoice_view')
                                     <a href="{{ route('admin.invoices.show',[$invoice->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
@@ -92,7 +101,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="27">@lang('global.app_no_entries_in_table')</td>
+                            <td colspan="28">@lang('global.app_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>
